@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- START xml_defaults -->
+<defaultsMap>
+    <entry>
+        <key>splash_sentence1</key>
+        <value></value>
+    </entry>
+    <entry>
+        <key>splash_sentence2</key>
+        <value></value>
+    </entry>
+    <entry>
+        <key>splash_version</key>
+        <value>VERSION</value>
+    </entry>
+    <entry>
+        <key>splash_cap</key>
+        <value>TRUE</value>
+    </entry>
+    <entry>
+        <key>theme_color</key>
+        <value>#000000</value>
+    </entry>
+    <entry>
+        <key>splash_fixing</key>
+        <value></value>
+    </entry>
+</defaultsMap>
+    <!-- END xml_defaults -->

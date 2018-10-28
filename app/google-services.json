@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "470502749779",
+    "firebase_url": "https://devtalk-24410.firebaseio.com",
+    "project_id": "devtalk-24410",
+    "storage_bucket": "devtalk-24410.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470502749779:android:d312c93be47e854b",
+        "android_client_info": {
+          "package_name": "com.devjk.devtalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470502749779-v9p437s397r6ksue4t3n1ruqkgaacm1c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.devjk.devtalk",
+            "certificate_hash": "28b2949e706328bf7e17bae8b0660db14f23edfd"
+          }
+        },
+        {
+          "client_id": "470502749779-b9cbc81irlbpobr8cjaoac6uulqhbii4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACeWIea6m6i3QCjLbygTwDDy8B4paYH4s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470502749779-b9cbc81irlbpobr8cjaoac6uulqhbii4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
