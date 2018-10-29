@@ -31,15 +31,34 @@
             android:fontFamily="@font/sans_black"
             android:textColor="#ffffff"/>
 
-        <TextView
-            android:id="@+id/SplashActivity_TextView_sentence"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="\n"
-            android:textColor="#8e8e8e"
+        <EditText
+            android:id="@+id/LoginActivity_EditText_id"
+            android:layout_margin="5dp"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext"
+            android:hint="id"
+            android:textColorHint="#87ffffff"
             android:textSize="15sp"
-            android:fontFamily="sans-serif-smallcaps"/>
+            android:textColor="#ffffff"
+            android:fontFamily="@font/sans_regular"
+            android:inputType="text"
+            />
+
+        <EditText
+            android:id="@+id/LoginActivity_EditText_password"
+            android:layout_margin="5dp"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext"
+            android:hint="password"
+            android:textColorHint="#87ffffff"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/sans_regular"
+            android:inputType="textPassword"
+            />
+
 
     </LinearLayout>
 
