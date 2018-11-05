@@ -32,17 +32,17 @@
             android:textColor="#ffffff"/>
 
         <EditText
-            android:id="@+id/LoginActivity_EditText_id"
+            android:id="@+id/LoginActivity_EditText_email"
             android:layout_margin="5dp"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:background="@drawable/edittext"
-            android:hint="id"
+            android:hint="email"
             android:textColorHint="#87ffffff"
             android:textSize="15sp"
             android:textColor="#ffffff"
             android:fontFamily="@font/sans_regular"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             />
 
         <EditText
@@ -58,6 +58,35 @@
             android:fontFamily="@font/sans_regular"
             android:inputType="textPassword"
             />
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/LoginActivity_Button_login"
+                android:layout_marginRight="5dp"
+                android:layout_width="115dp"
+                android:layout_height="30dp"
+                android:background="@drawable/button"
+                android:text="login"
+                android:textSize="14sp"
+                android:fontFamily="@font/sans_regular"/>
+
+            <Button
+                android:id="@+id/LoginActivity_Button_signUp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="115dp"
+                android:layout_height="30dp"
+                android:background="@drawable/button"
+                android:text="Sign up"
+                android:textSize="14sp"
+                android:fontFamily="@font/sans_regular"/>
+
+        </LinearLayout>
 
 
     </LinearLayout>

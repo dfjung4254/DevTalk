@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="550dp"
+    tools:context=".SignUpActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center"
+    android:background="@drawable/alert"
+    android:elevation="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#ffffff"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/SignUpActivity_Button_exit"
+            android:background="@drawable/exit"
+            android:layout_alignParentRight="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_marginTop="40dp"
+        android:id="@+id/SignUpActivity_ImageView_profile"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/user"
+        android:elevation="10dp"/>
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="프로필을 지정해주세요."
+        android:textSize="12sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/sans_light"/>
+
+    <EditText
+        android:id="@+id/SignUpActivity_EditText_email"
+        android:layout_marginTop="10dp"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext"
+        android:hint="email"
+        android:textColorHint="#87ffffff"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/sans_regular"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
+        android:id="@+id/SignUpActivity_EditText_password"
+        android:layout_marginTop="10dp"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext"
+        android:hint="password"
+        android:textColorHint="#87ffffff"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/sans_regular"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/SignUpActivity_EditText_passwordConfirm"
+        android:layout_marginTop="10dp"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext"
+        android:hint="password confirm"
+        android:textColorHint="#87ffffff"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/sans_regular"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/SignUpActivity_EditText_nickName"
+        android:layout_marginTop="10dp"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext"
+        android:hint="nickname"
+        android:textColorHint="#87ffffff"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/sans_regular"
+        android:inputType="text"
+        />
+
+    <EditText
+        android:id="@+id/SignUpActivity_EditText_phone"
+        android:layout_marginTop="10dp"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittext"
+        android:hint="phone"
+        android:textColorHint="#87ffffff"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/sans_regular"
+        android:inputType="phone"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/SignUpActivity_Button_join"
+            android:layout_marginRight="5dp"
+            android:layout_width="240dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button"
+            android:text="join us !"
+            android:textSize="14sp"
+            android:fontFamily="@font/sans_regular"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
