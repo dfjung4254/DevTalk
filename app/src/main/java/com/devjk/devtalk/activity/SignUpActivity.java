@@ -1,6 +1,5 @@
-package com.devjk.devtalk;
+package com.devjk.devtalk.activity;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.devjk.devtalk.R;
+import com.devjk.devtalk.controller.AuthController;
+import com.devjk.devtalk.controller.ValidateCheck;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,15 +29,13 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText editText_phone;
     private Button btn_join;
 
-    private FirebaseAuth mAuth;
+    private String profileUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_sign_up);
-
-        mAuth = FirebaseAuth.getInstance();
 
         btn_exit = (Button) findViewById(R.id.SignUpActivity_Button_exit);
         imgv_profile = (ImageView) findViewById(R.id.SignUpActivity_ImageView_profile);
@@ -54,33 +54,15 @@ public class SignUpActivity extends AppCompatActivity {
     private class JoinOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            if(checkValidate()){
-                //회원가입.
-                mAuth.createUserWithEmailAndPassword(
-                        editText_email.getText().toString(),
-                        editText_password.getText().toString()).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            //성공
-                            Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }else{
-                            //실패
-
-                        }
-                    }
-                });
-            }else{
-                Toast.makeText(getApplicationContext(), "제대로 입력해라잉", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        public boolean checkValidate(){
-            boolean ret = true;
-            //회원정보 입력 유효성 검사.
-
-            return ret;
+            AuthController.getInstance().createAccount(
+                    SignUpActivity.this,
+                    editText_email.getText().toString(),
+                    editText_password.getText().toString(),
+                    editText_passwordConfirm.getText().toString(),
+                    editText_nickName.getText().toString(),
+                    editText_phone.getText().toString(),
+                    profileUri
+            );
         }
     }
 

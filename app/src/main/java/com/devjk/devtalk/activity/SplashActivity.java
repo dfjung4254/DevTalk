@@ -1,4 +1,4 @@
-package com.devjk.devtalk;
+package com.devjk.devtalk.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.devjk.devtalk.BuildConfig;
+import com.devjk.devtalk.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;

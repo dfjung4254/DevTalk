@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        tools:context=".SplashActivity"
+        tools:context=".activity.SplashActivity"
         android:background="#A6000000">
 
         <ImageView
