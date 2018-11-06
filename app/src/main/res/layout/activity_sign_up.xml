@@ -12,24 +12,8 @@
     android:background="@drawable/alert"
     android:elevation="15dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="#ffffff"
-        android:gravity="center_vertical">
-
-        <Button
-            android:id="@+id/SignUpActivity_Button_exit"
-            android:background="@drawable/exit"
-            android:layout_alignParentRight="true"
-            android:layout_marginHorizontal="10dp"
-            android:layout_width="20dp"
-            android:layout_height="20dp"/>
-
-    </RelativeLayout>
-
     <ImageView
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="65dp"
         android:id="@+id/SignUpActivity_ImageView_profile"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -120,19 +104,27 @@
         android:layout_marginTop="20dp"
         android:layout_width="240dp"
         android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:gravity="center" >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/SignUpActivity_Button_join"
-            android:layout_marginRight="5dp"
-            android:layout_width="240dp"
+            android:layout_marginHorizontal="3dp"
+            android:layout_width="115dp"
             android:layout_height="30dp"
             android:background="@drawable/button"
             android:text="join us !"
-            android:textSize="14sp"
-            android:fontFamily="@font/sans_regular"
-            android:layout_gravity="center"/>
+            android:textColor="#000000"
+            android:fontFamily="@font/sans_regular"/>
+
+        <Button
+            android:id="@+id/SignUpActivity_Button_exit"
+            android:layout_marginHorizontal="3dp"
+            android:layout_width="115dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button"
+            android:text="cancel"
+            android:textColor="#000000"
+            android:fontFamily="@font/sans_regular"/>
 
     </LinearLayout>
 

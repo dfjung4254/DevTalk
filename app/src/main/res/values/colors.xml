@@ -3,4 +3,6 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <drawable name="btn_pressed_white">#c7ffffff</drawable>
+    <drawable name="btn_nonPressed_white">#ffffff</drawable>
 </resources>
