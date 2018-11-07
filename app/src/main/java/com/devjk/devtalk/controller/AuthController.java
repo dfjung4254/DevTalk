@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 
 public class AuthController {
 
@@ -19,6 +20,7 @@ public class AuthController {
         firebaseAuth = FirebaseAuth.getInstance();
     }
 
+    //계정 생성.
     public void createAccount(final AppCompatActivity parent,
                               final String email, final String password, String cPassword,
                               final String nickName, final String phone, String profileUri){
@@ -63,15 +65,23 @@ public class AuthController {
                     if(task.isSuccessful()){
                         //계정Auth생성되면 DB에 저장.
                         String uid = task.getResult().getUser().getUid();
-                        boolean isSaved = DatabaseController.getInstance().addUserInfo(new UserModel(
+                        DatabaseController.getInstance().addUserInfo(parent, new UserModel(
                                 uid, email, password, nickName, phone).getMapModel()
-                        );
-                        if(isSaved){
-                            //DB에 저장 성공.
-                            //Profile사진 저장.
-                            Toast.makeText(parent, "회원가입 성공", Toast.LENGTH_SHORT).show();
-                            parent.finish();
-                        }
+                        ).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentReference> task) {
+                                if(task.isSuccessful()){
+                                    //DB에 저장 성공.
+                                    //DB에 저장 성공.
+                                    //Profile사진 저장해야함.
+                                    Toast.makeText(parent, "회원가입 성공", Toast.LENGTH_SHORT).show();
+
+                                    parent.finish();
+                                }else{
+                                    Toast.makeText(parent, "회원가입 실패 : "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
                     }else{
                         Toast.makeText(parent, "회원가입 실패 : "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
