@@ -1,5 +1,7 @@
 package com.devjk.devtalk.controller;
 
+import android.net.Uri;
+
 public class ValidateCheck {
 
     private static ValidateCheck instance;
@@ -68,12 +70,11 @@ public class ValidateCheck {
         }
         return VALIDATE_PASS;
     }
-    public int checkProfile(String profileUri){
-        return VALIDATE_PASS;
-        //return (profileUri != null) ? VALIDATE_PASS:VALIDATE_PROFILE_NON;
+    public int checkProfile(Uri profileUri) {
+        return (profileUri != null) ? VALIDATE_PASS:VALIDATE_PROFILE_NON;
     }
 
-    public int checkAccount(String email, String password, String cPassword, String nickName, String phone, String profileUri){
+    public int checkAccount(String email, String password, String cPassword, String nickName, String phone, Uri profileUri){
         int ret = VALIDATE_PASS;
         ret = checkEmail(email);
         if(ret != VALIDATE_PASS) return ret;

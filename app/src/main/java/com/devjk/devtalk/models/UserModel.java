@@ -18,18 +18,20 @@ public class UserModel {
         //constructor
     }
 
-    public UserModel(String uid, String email, String password, String nickName, String phone){
+    public UserModel(String uid, String email, String password, String nickName, String phone, String profileUrl){
         mapInstance = new HashMap<>();
         this.uid = uid;
         this.email = email;
         this.password = password;
         this.nickName = nickName;
         this.phone = phone;
+        this.profileUrl = profileUrl;
         mapInstance.put("uid", uid);
         mapInstance.put("email", email);
         mapInstance.put("password", password);
         mapInstance.put("nickName", nickName);
         mapInstance.put("phone", phone);
+        mapInstance.put("profileUrl", profileUrl);
     }
 
     //methods
