@@ -38,6 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_sign_up);
 
@@ -108,5 +109,11 @@ public class SignUpActivity extends AppCompatActivity {
                 text_profileName.setText(imgName);
             }
         }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 }

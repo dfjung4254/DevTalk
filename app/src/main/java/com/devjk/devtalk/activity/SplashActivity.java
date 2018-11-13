@@ -26,6 +26,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_splash);
         //SplashActivity 작성 2018.10.29 정근화
         sentence = (TextView)findViewById(R.id.SplashActivity_TextView_sentence);
@@ -103,4 +104,9 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        this.overridePendingTransition(0,0);
+    }
 }

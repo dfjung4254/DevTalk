@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_login);
 
         loadingDialog = new LoadingDialog(this);
@@ -91,4 +92,9 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+    }
 }
