@@ -1,23 +1,27 @@
 package com.devjk.devtalk.controller;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.devjk.devtalk.Dialog.LoadingDialog;
 import com.devjk.devtalk.models.UserModel;
-import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.storage.UploadTask;
 
 public class AuthController {
 
     private static AuthController instance;
+    public static UserModel currentUser;
+
     private FirebaseAuth firebaseAuth;
+    private LoadingDialog loadingDialog;
 
     public AuthController() {
         firebaseAuth = FirebaseAuth.getInstance();
@@ -65,7 +69,8 @@ public class AuthController {
     public void createAccount(final AppCompatActivity parent,
                               final String email, final String password, String cPassword,
                               final String nickName, final String phone, final Uri profileUri){
-
+        loadingDialog = new LoadingDialog(parent);
+        loadingDialog.show();
         if(createAccountValidate(parent, email, password, cPassword, nickName, phone, profileUri)){
             //auth create
             firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -86,37 +91,56 @@ public class AuthController {
                                                 //Storage에 사진저장한 URL을 포함한 DB정보를 저장.
                                                 DatabaseController.getInstance().addUserInfo(parent, new UserModel(
                                                         uid, email, password, nickName, phone, downloadUri.toString())
-                                                .getMapModel()).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                                ).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                     @Override
-                                                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                                                    public void onComplete(@NonNull Task<Void> task) {
                                                         if(task.isSuccessful()){
                                                             Toast.makeText(parent, "회원가입 완료", Toast.LENGTH_SHORT).show();
+                                                            loadingDialog.dismiss();
                                                             parent.finish();
                                                         }else{
+                                                            loadingDialog.dismiss();
                                                             Toast.makeText(parent, "회원가입 실패 : "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                                         }
                                                     }
                                                 });
                                             }else{
+                                                loadingDialog.dismiss();
                                                 Toast.makeText(parent, "회원가입 실패 : "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
                                 }else{
+                                    loadingDialog.dismiss();
                                     Toast.makeText(parent, "회원가입 실패 : "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
 
                     }else{
+                        loadingDialog.dismiss();
                         Toast.makeText(parent, "회원가입 실패 : "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
+        }else{
+            loadingDialog.dismiss();
         }
     }
-
-
+    //계정 로그인
+    public Task<AuthResult> checkAuthandLogin(final Activity parent, String inputEmail, String inputPassword){
+        return firebaseAuth.signInWithEmailAndPassword(inputEmail, inputPassword);
+    }
+    //현재 유저 정보 설정
+    public Task<DocumentSnapshot> setCurrentUser() {
+        String uid = firebaseAuth.getCurrentUser().getUid();
+        return DatabaseController.getInstance().getUserInfoWithUid(uid);
+    }
+    //현재 유저 반환
+    public UserModel getCurrentUser(){
+        return currentUser;
+    }
+    //getInstance
     public static AuthController getInstance() {
         if(instance == null){
             instance = new AuthController();

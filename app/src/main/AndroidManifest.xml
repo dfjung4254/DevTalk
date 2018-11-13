@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.devjk.devtalk">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,11 +15,15 @@
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity"/>
-        <activity android:name=".activity.SignUpActivity" android:theme="@style/Base.Theme.AppCompat.Dialog"></activity>
+        <activity android:name=".activity.LoginActivity" />
+        <activity
+            android:name=".activity.SignUpActivity"
+            android:theme="@style/Base.Theme.AppCompat.Dialog" />
+        <activity android:name=".activity.MainActivity"></activity>
     </application>
 
 </manifest>

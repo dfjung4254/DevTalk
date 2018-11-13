@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.devjk.devtalk.R;
 import com.devjk.devtalk.controller.AuthController;
 import com.devjk.devtalk.controller.LoadController;
@@ -45,7 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
         editText_email = (EditText) findViewById(R.id.SignUpActivity_EditText_email);
         editText_password = (EditText) findViewById(R.id.SignUpActivity_EditText_password);
         editText_passwordConfirm = (EditText) findViewById(R.id.SignUpActivity_EditText_passwordConfirm);
-        editText_nickName = (EditText) findViewById(R.id.SignUpActivity_EditText_email);
+        editText_nickName = (EditText) findViewById(R.id.SignUpActivity_EditText_nickName);
         editText_phone = (EditText) findViewById(R.id.SignUpActivity_EditText_phone);
         btn_join = (Button) findViewById(R.id.SignUpActivity_Button_join);
 

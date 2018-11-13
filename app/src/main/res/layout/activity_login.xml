@@ -73,6 +73,7 @@
                 android:layout_height="30dp"
                 android:background="@drawable/button"
                 android:text="login"
+                android:textSize="11sp"
                 android:fontFamily="@font/sans_regular"/>
 
             <Button
@@ -82,6 +83,7 @@
                 android:layout_height="30dp"
                 android:background="@drawable/button"
                 android:text="Sign up"
+                android:textSize="11sp"
                 android:fontFamily="@font/sans_regular"/>
 
         </LinearLayout>

@@ -114,6 +114,7 @@
             android:layout_height="30dp"
             android:background="@drawable/button"
             android:text="join us !"
+            android:textSize="11sp"
             android:textColor="#000000"
             android:fontFamily="@font/sans_regular"/>
 
@@ -124,6 +125,7 @@
             android:layout_height="30dp"
             android:background="@drawable/button"
             android:text="cancel"
+            android:textSize="11sp"
             android:textColor="#000000"
             android:fontFamily="@font/sans_regular"/>
 
