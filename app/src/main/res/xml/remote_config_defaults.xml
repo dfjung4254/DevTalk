@@ -25,5 +25,9 @@
         <key>splash_fixing</key>
         <value></value>
     </entry>
+    <entry>
+        <key>theme_colorTint</key>
+        <value>#ffffff</value>
+    </entry>
 </defaultsMap>
     <!-- END xml_defaults -->

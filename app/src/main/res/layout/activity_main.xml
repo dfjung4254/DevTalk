@@ -1,63 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.MainActivity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    android:layout_height="match_parent">
 
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/MainActivity_AppBarLayout_appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/MainActivity_Toolbar_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="#535353"
-            android:elevation="10dp">
-
-            <TextView
-                android:id="@+id/MainActivity_TextView_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="DEVTALK"
-                android:textColor="#ffffff"
-                android:textSize="16sp"
-                android:fontFamily="@font/sans_bold"/>
-
-        </android.support.v7.widget.Toolbar>
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/MainActivity_TabLayout_tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#7c7c7c"
-            app:tabMode="fixed"
-            app:tabGravity="fill"
-            app:tabTextColor="#9c9c9c"
-            app:tabSelectedTextColor="#ffffff"
-            app:tabIndicatorColor="@color/colorAccent">
-
-
-        </android.support.design.widget.TabLayout>
-
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/MainActivity_ViewPager_viewPager"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/MainActivity_AppBarLayout_appBarLayout">
+        >
+        
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/MainActivity_AppBarLayout_appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
 
-    </android.support.v4.view.ViewPager>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/MainActivity_Toolbar_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/backgroundColor"
+                android:elevation="5dp">
+
+                <ImageView
+                    android:id="@+id/MainActivity_ImageView_titleIcon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="10dp"/>
+
+                <TextView
+                    android:id="@+id/MainActivity_TextView_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="DEVTALK"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/sans_bold"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp">
+
+                    <LinearLayout
+                        android:id="@+id/MainActivity_LinearLayout_usersBarLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="right|center_vertical"
+                        android:paddingRight="15dp">
+
+                        <Button
+                            android:id="@+id/MainActivity_Button_btnSearch"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="5dp"/>
+
+                        <Button
+                            android:id="@+id/MainActivity_Button_btnNewFriend"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="5dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/MainActivity_LinearLayout_chatsBarLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="left">
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/MainActivity_LinearLayout_scheduleBarLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="left">
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/MainActivity_LinearLayout_myAccountBarLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="left">
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/MainActivity_TabLayout_tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#ffffff"
+                app:tabMode="fixed"
+                app:tabGravity="fill"
+                app:tabTextColor="@color/backgroundColor"
+                app:tabSelectedTextColor="@color/backgroundColor"
+                app:tabIndicatorColor="#000000"
+                app:tabIndicatorHeight="3dp"
+                android:elevation="5dp">
+
+            </android.support.design.widget.TabLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/MainActivity_ViewPager_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/MainActivity_AppBarLayout_appBarLayout"
+            android:background="@color/backgroundColor">
+
+        </android.support.v4.view.ViewPager>
 
 
+    </RelativeLayout>
 
-
-</RelativeLayout>
+</FrameLayout>

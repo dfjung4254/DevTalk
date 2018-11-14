@@ -7,4 +7,9 @@
         <item name="colorAccent">#d9004f</item>
     </style>
 
+    <style name="DevFragText">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">@font/sans_thin</item>
+    </style>
+
 </resources>

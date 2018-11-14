@@ -1,20 +1,27 @@
 package com.devjk.devtalk.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.devjk.devtalk.R;
+import com.devjk.devtalk.activity.SplashActivity;
 
 public class MyAccountFragment extends Fragment {
+
+    private LinearLayout mainlayout;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_myaccountfragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_myaccount, container, false);
 
+        mainlayout = (LinearLayout) view.findViewById(R.id.MyAccountFragment_LinearLayout_mainView);
+        mainlayout.setBackgroundColor(Color.parseColor(SplashActivity.THEME_COLOR));
 
         return view;
     }

@@ -1,6 +1,7 @@
 package com.devjk.devtalk.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_login);
+        getWindow().setStatusBarColor(Color.parseColor(SplashActivity.THEME_COLOR));
 
         loadingDialog = new LoadingDialog(this);
 

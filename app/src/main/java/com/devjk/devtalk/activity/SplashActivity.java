@@ -23,6 +23,11 @@ public class SplashActivity extends AppCompatActivity {
     TextView version;
     FirebaseRemoteConfig mFirebaseRemoteConfig;
 
+    public static String APP_VERSION = "";
+    public static String THEME_COLOR = "";
+    public static String THEME_COLORTINT = "";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,13 +69,14 @@ public class SplashActivity extends AppCompatActivity {
 
         String str_sentence1 = mFirebaseRemoteConfig.getString("splash_sentence1");
         String str_sentence2 = mFirebaseRemoteConfig.getString("splash_sentence2");
-        String str_version = mFirebaseRemoteConfig.getString("splash_version");
+        APP_VERSION = mFirebaseRemoteConfig.getString("splash_version");
         Boolean caps = mFirebaseRemoteConfig.getBoolean("splash_cap");
-        String theme_color = mFirebaseRemoteConfig.getString("theme_color");
+        THEME_COLOR = mFirebaseRemoteConfig.getString("theme_color");
+        THEME_COLORTINT = mFirebaseRemoteConfig.getString("theme_colorTint");
         String str_fixing = mFirebaseRemoteConfig.getString("splash_fixing");
         sentence.setText(str_sentence1+"\n"+str_sentence2);
-        version.setText(str_version);
-        getWindow().setStatusBarColor(Color.parseColor(theme_color));
+        version.setText(APP_VERSION);
+        getWindow().setStatusBarColor(Color.parseColor(THEME_COLOR));
 
         if(caps){
             //진입가능 로딩 구현
