@@ -141,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
     }
     private void setUsersTabIcons(){
         Button btn_search = (Button) findViewById(R.id.MainActivity_Button_btnSearch);
-        Button btn_newFriend = (Button) findViewById(R.id.MainActivity_Button_btnNewFriend);
         btn_search.setBackgroundResource(R.drawable.icon_search_white);
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void onAnimationStart(Animator animation) {
                                     super.onAnimationStart(animation);
                                     usersFragment.searchLayout.setVisibility(View.VISIBLE);
+                                    usersFragment.searchLayout.setFocusable(true);
                                 }
                             });
                 }else{
@@ -173,13 +173,6 @@ public class MainActivity extends AppCompatActivity {
                             });
 
                 }
-
-            }
-        });
-        btn_newFriend.setBackgroundResource(R.drawable.icon_newfriend_white);
-        btn_newFriend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
             }
         });

@@ -1,5 +1,7 @@
 package com.devjk.devtalk.fragment;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
@@ -27,8 +29,6 @@ public class UsersFragment extends Fragment {
     private Button btn_search;
     private RecyclerView recyclerView;
 
-    private BitmapDrawable searchIconImage;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,7 +37,6 @@ public class UsersFragment extends Fragment {
 
         mainlayout = (FrameLayout) view.findViewById(R.id.UsersFragment_FrameLayout_mainView);
         mainlayout.setBackgroundColor(Color.parseColor(SplashActivity.THEME_COLOR));
-
         searchLayout = (FrameLayout) view.findViewById(R.id.UsersFragment_FrameLayout_searchLayout);
         editText_search = (EditText) view.findViewById(R.id.UsersFragment_EditText_txtSearch);
         btn_search = (Button) view.findViewById(R.id.UsersFragment_Button_btnSearch);
