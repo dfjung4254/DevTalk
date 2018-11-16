@@ -1,6 +1,8 @@
 package com.devjk.devtalk.models;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserModel {
@@ -11,6 +13,7 @@ public class UserModel {
     private String nickName;
     private String phone;
     private String profileUrl;
+    private List<String> friendUidList;
 
     public UserModel(){
         //constructor
@@ -23,6 +26,7 @@ public class UserModel {
         this.nickName = nickName;
         this.phone = phone;
         this.profileUrl = profileUrl;
+        friendUidList = new ArrayList<>();
     }
 
     //methods
@@ -63,5 +67,10 @@ public class UserModel {
     public void setProfileUrl(String profileUrl) {
         this.profileUrl = profileUrl;
     }
-
+    public List<String> getFriendUidList() {
+        return friendUidList;
+    }
+    public void setFriendUidList(List<String> friendUidList) {
+        this.friendUidList = friendUidList;
+    }
 }

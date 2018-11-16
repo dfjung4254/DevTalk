@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/MainActivity_AppBarLayout_appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/MainActivity_Toolbar_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/backgroundColor">
+
+                <ImageView
+                    android:id="@+id/MainActivity_ImageView_titleIcon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/icon_friends_3"/>
+
+                <TextView
+                    android:id="@+id/MainActivity_TextView_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Users"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/sans_bold"/>
+
+            </android.support.v7.widget.Toolbar>
+
+            <TextView
+                android:id="@+id/AddFriendActivity_TextView_searchGuideText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#ffffff"
+                android:gravity="center_horizontal|bottom"
+                android:textSize="15sp" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/AddFriendActivity_FrameLayout_searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginVertical="15dp"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/search"
+            android:layout_below="@id/MainActivity_AppBarLayout_appBarLayout"
+            android:elevation="5dp">
+
+            <EditText
+                android:id="@+id/AddFriendActivity_EditText_txtSearch"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginHorizontal="40dp"
+                android:textSize="14sp"
+                android:textColor="@color/backgroundColor"
+                android:fontFamily="sans-serif"
+                android:background="@null"
+                android:hint=""/>
+
+            <Button
+                android:id="@+id/AddFriendActivity_Button_btnSearch"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/icon_search"/>
+
+        </FrameLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/AddFriendActivity_RecyclerView_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/AddFriendActivity_FrameLayout_searchBar">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+</FrameLayout>

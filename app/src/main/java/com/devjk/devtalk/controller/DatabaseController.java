@@ -6,6 +6,7 @@ import com.devjk.devtalk.models.UserModel;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class DatabaseController {
 
@@ -40,6 +41,19 @@ public class DatabaseController {
     public Task<DocumentSnapshot> getUserInfoWithUid(String uid){
         return firebaseFirestore.collection("Users")
                 .document(uid).get();
+    }
+    //친구리스트 추가업데이트
+    public Task<Void> addFriendUid(String friendUid){
+        AuthController.currentUser.getFriendUidList().add(friendUid);
+        String myUid = AuthController.currentUser.getUid();
+        return firebaseFirestore.collection("Users")
+                .document(myUid).set(AuthController.currentUser);
+    }
+    //친구 찾기 검색 결과 정보 불러오기
+    public Task<QuerySnapshot> getUserInfoQuery(String queryField, String query){
+        return firebaseFirestore.collection("Users")
+                .whereEqualTo(queryField, query)
+                .get();
     }
 
 }

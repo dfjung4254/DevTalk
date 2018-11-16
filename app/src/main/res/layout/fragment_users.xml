@@ -36,7 +36,8 @@
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:background="@drawable/icon_search"/>
 
     </FrameLayout>
 

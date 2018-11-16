@@ -23,7 +23,8 @@
         <activity
             android:name=".activity.SignUpActivity"
             android:theme="@style/Base.Theme.AppCompat.Dialog" />
-        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.AddFriendActivity"></activity>
     </application>
 
 </manifest>
