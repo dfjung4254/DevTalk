@@ -18,7 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:fontFamily="@font/sans_thin"
+        android:fontFamily="@font/sans_light"
+        android:textColor="#28282d"
         android:layout_toRightOf="@id/ItemListAddFriend_ImageView_profile"
         android:layout_centerVertical="true"/>
 
@@ -26,7 +27,8 @@
         android:id="@+id/ItemListAddFriend_TextView_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/sans_thin"
+        android:fontFamily="@font/sans_light"
+        android:textColor="#28282d"
         android:text=" / "
         android:layout_toRightOf="@id/ItemListAddFriend_TextView_nickName"
         android:layout_centerVertical="true"/>
@@ -35,7 +37,8 @@
         android:id="@+id/ItemListAddFriend_TextView_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/sans_thin"
+        android:fontFamily="@font/sans_light"
+        android:textColor="#28282d"
         android:layout_toRightOf="@id/ItemListAddFriend_TextView_line"
         android:layout_centerVertical="true"/>
 

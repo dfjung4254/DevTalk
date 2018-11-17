@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="20dp"
+    android:background="#00ffffff">
+
+    <ImageView
+        android:id="@+id/ItemListListFriend_ImageView_profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/ItemListListFriend_TextView_nickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="@font/sans_light"
+        android:textColor="#28282d"
+        android:text="닉네임"
+        android:layout_toRightOf="@id/ItemListAddFriend_ImageView_profile"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/ItemListListFriend_TextView_status"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingHorizontal="10dp"
+        android:text="오오오 대화명이다"
+        android:textSize="12sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/sans_light"
+        android:gravity="center"
+        android:background="#28282d"/>
+
+
+</RelativeLayout>

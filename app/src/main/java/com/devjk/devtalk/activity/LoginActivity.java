@@ -53,6 +53,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            FirebaseAuth.getInstance().signOut();
+        }
 //        if(AuthController.getInstance().getCurrentUser() != null){
 //            startActivity(new Intent(this, MainActivity.class));
 //            finish();
@@ -63,8 +66,14 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             //authCheck and go Main Page
+            String email = editText_email.getText().toString().trim();
+            String passwd = editText_password.getText().toString();
+            if(email.equals("") || passwd.equals("")){
+                Toast.makeText(LoginActivity.this, "아이디 또는 비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
+                return;
+            }
             loadingDialog.show();
-            AuthController.getInstance().checkAuthandLogin(getParent(), editText_email.getText().toString(), editText_password.getText().toString())
+            AuthController.getInstance().checkAuthandLogin(getParent(), email, passwd)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {

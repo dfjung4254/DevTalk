@@ -14,6 +14,8 @@ public class UserModel {
     private String phone;
     private String profileUrl;
     private List<String> friendUidList;
+    private List<String> friendedUidList;
+    private String status;
 
     public UserModel(){
         //constructor
@@ -26,7 +28,9 @@ public class UserModel {
         this.nickName = nickName;
         this.phone = phone;
         this.profileUrl = profileUrl;
+        this.status = "";
         friendUidList = new ArrayList<>();
+        friendedUidList = new ArrayList<>();
     }
 
     //methods
@@ -72,5 +76,17 @@ public class UserModel {
     }
     public void setFriendUidList(List<String> friendUidList) {
         this.friendUidList = friendUidList;
+    }
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public List<String> getFriendedUidList() {
+        return friendedUidList;
+    }
+    public void setFriendedUidList(List<String> friendedUidList) {
+        this.friendedUidList = friendedUidList;
     }
 }

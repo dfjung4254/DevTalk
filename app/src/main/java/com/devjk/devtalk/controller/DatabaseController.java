@@ -8,6 +8,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class DatabaseController {
 
     private static DatabaseController instance;
@@ -49,11 +52,28 @@ public class DatabaseController {
         return firebaseFirestore.collection("Users")
                 .document(myUid).set(AuthController.currentUser);
     }
-    //친구 찾기 검색 결과 정보 불러오기
+    //친구당한 리스트 추가업데이트
+    public Task<Void> addFriendedUid(String friendUid){
+        ArrayList<String> list = new ArrayList<>();
+        list.add(AuthController.currentUser.getUid());
+        return firebaseFirestore.collection("Users")
+                .document(friendUid).update("friendedUidList", list);
+    }
+    //유저 검색 결과 정보 불러오기
     public Task<QuerySnapshot> getUserInfoQuery(String queryField, String query){
         return firebaseFirestore.collection("Users")
                 .whereEqualTo(queryField, query)
                 .get();
+    }
+    //친구 정보 모두 불러오기
+    public void getMyFriendsQuery(String queryField, ArrayList<String> friendUids){
+        firebaseFirestore.collection("Users")
+                .whereEqualTo(queryField, friendUids.get(0));
+
+        //여기서 작업 --where arraycontains를 사용하는데 firestore데이터에
+        //친구추가가 당한 데이터 배열을 추가한다.
+
+
     }
 
 }
