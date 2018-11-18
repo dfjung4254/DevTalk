@@ -88,10 +88,6 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
     @Override
-    public void onBackPressed() {
-        return;
-    }
-    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == LoadController.CODE_SELECT_IMAGE){
             //사진 받아올때. 사진 이미지 수정, 텍스트 제목 수정.
@@ -110,7 +106,6 @@ public class SignUpActivity extends AppCompatActivity {
             }
         }
     }
-
     @Override
     public void finish() {
         super.finish();

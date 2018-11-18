@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,6 +45,7 @@ public class AddFriendActivity extends AppCompatActivity {
     private TextView txt_searchGuide;
     private EditText editText_search;
     private Button btn_search;
+    private Button btn_backPressed;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private LinearLayout emptyLayout;
@@ -63,6 +65,7 @@ public class AddFriendActivity extends AppCompatActivity {
         txt_searchGuide = (TextView) findViewById(R.id.AddFriendActivity_TextView_searchGuideText);
         editText_search = (EditText) findViewById(R.id.AddFriendActivity_EditText_txtSearch);
         btn_search = (Button) findViewById(R.id.AddFriendActivity_Button_btnSearch);
+        btn_backPressed = (Button) findViewById(R.id.AddFriendActivity_Button_btnBackPressed);
         recyclerView = (RecyclerView) findViewById(R.id.AddFriendActivity_RecyclerView_recyclerView);
         emptyLayout = (LinearLayout) findViewById(R.id.AddFriendActivity_LinearLayout_viewEmpty);
         emptyLayout.setVisibility(View.GONE);
@@ -74,7 +77,18 @@ public class AddFriendActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new FriendRecyclerAdapter(searchUsers);
         recyclerView.setAdapter(adapter);
+        setOnClickListener();
 
+    }
+
+    //onclickListner 달기.
+    public void setOnClickListener(){
+        btn_backPressed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,31 +121,32 @@ public class AddFriendActivity extends AppCompatActivity {
                 });
             }
         });
-
     }
-
+    //Intent type에 따른 입력타입 변경.
     public void setSearchTypeActivity(String type){
         switch (type){
             case "email":
                 txt_searchGuide.setText("추가할 친구의 이메일을 검색하세요");
                 editText_search.setHint("이메일을 입력해주세요");
+                editText_search.setInputType(InputType.TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS);
                 sqlQuery = "email";
                 break;
             case "phone":
                 txt_searchGuide.setText("추가할 친구의 전화번호를 검색하세요");
                 editText_search.setHint(" - 없이 입력해주세요");
+                editText_search.setInputType(InputType.TYPE_CLASS_PHONE);
                 sqlQuery = "phone";
                 break;
             case "nickName":
                 txt_searchGuide.setText("추가할 친구의 닉네임을 검색하세요");
                 editText_search.setHint("닉네임을 입력해주세요");
+                editText_search.setInputType(InputType.TYPE_CLASS_TEXT);
                 sqlQuery = "nickName";
                 break;
             default:
                 break;
         }
     }
-
     //RecyclerView Adapter 내부 클래스 구현
     private class FriendRecyclerAdapter extends RecyclerView.Adapter<FriendRecyclerAdapter.ItemViewHolder>{
 
@@ -167,9 +182,9 @@ public class AddFriendActivity extends AppCompatActivity {
                             holder.txt_nickName.setText(friend.getNickName());
                             holder.txt_email.setText(friend.getEmail());
                             boolean isFriend = false;
-                            for(String friendUid : AuthController.currentUser.getFriendUidList()){
+                            for(String friendUidKey : AuthController.currentUser.getFriendUidList().keySet()){
                                 //이 유저가 친구로 등록된 유저인지 아닌지판단
-                                if(friendUid.equals(friend.getUid())){
+                                if(friendUidKey.equals(friend.getUid())){
                                     isFriend = true;
                                     break;
                                 }

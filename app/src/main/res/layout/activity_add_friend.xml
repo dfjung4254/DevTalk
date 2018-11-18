@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activity.MainActivity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -65,7 +66,6 @@
             android:id="@+id/AddFriendActivity_TextView_searchGuideText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#ffffff"
             android:gravity="center_horizontal|bottom"
             android:layout_below="@id/MainActivity_AppBarLayout_appBarLayout"
             android:textSize="15sp" />
@@ -117,20 +117,14 @@
             android:layout_below="@id/AddFriendActivity_FrameLayout_searchBar"
             android:orientation="vertical"
             android:gravity="center_horizontal"
-            android:layout_marginTop="80dp">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/icon_cloudoff"
-                android:layout_margin="20dp"/>
+            android:layout_marginTop="120dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="검색 결과가 없습니다"
                 android:textColor="#000000"
-                android:fontFamily="@font/sans_thin"
+                android:fontFamily="@font/sans_regular"
                 android:textSize="20sp"/>
 
         </LinearLayout>

@@ -13,8 +13,8 @@ public class UserModel {
     private String nickName;
     private String phone;
     private String profileUrl;
-    private List<String> friendUidList;
-    private List<String> friendedUidList;
+    private Map<String, Boolean> friendUidList;
+    private Map<String, Boolean> friendedUidList;
     private String status;
 
     public UserModel(){
@@ -29,8 +29,8 @@ public class UserModel {
         this.phone = phone;
         this.profileUrl = profileUrl;
         this.status = "";
-        friendUidList = new ArrayList<>();
-        friendedUidList = new ArrayList<>();
+        friendUidList = new HashMap<>();
+        friendedUidList = new HashMap<>();
     }
 
     //methods
@@ -71,10 +71,10 @@ public class UserModel {
     public void setProfileUrl(String profileUrl) {
         this.profileUrl = profileUrl;
     }
-    public List<String> getFriendUidList() {
+    public Map<String, Boolean> getFriendUidList() {
         return friendUidList;
     }
-    public void setFriendUidList(List<String> friendUidList) {
+    public void setFriendUidList(Map<String, Boolean> friendUidList) {
         this.friendUidList = friendUidList;
     }
     public String getStatus() {
@@ -83,10 +83,10 @@ public class UserModel {
     public void setStatus(String status) {
         this.status = status;
     }
-    public List<String> getFriendedUidList() {
+    public Map<String, Boolean> getFriendedUidList() {
         return friendedUidList;
     }
-    public void setFriendedUidList(List<String> friendedUidList) {
+    public void setFriendedUidList(Map<String, Boolean> friendedUidList) {
         this.friendedUidList = friendedUidList;
     }
 }
