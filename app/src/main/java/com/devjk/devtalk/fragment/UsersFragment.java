@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -195,7 +196,7 @@ public class UsersFragment extends Fragment {
                 ((FriendListViewHolder)holder).imgv_profile.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        new ProfileDialog(getContext()).show();
+                        new ProfileDialog(getContext(), friend).show();
                     }
                 });
             }else{
@@ -226,7 +227,7 @@ public class UsersFragment extends Fragment {
                 ((MeListViewHolder)holder).imgv_profile.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        new ProfileDialog(getContext()).show();
+                        new ProfileDialog(getContext(), friend).show();
                     }
                 });
             }
