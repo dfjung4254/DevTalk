@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/ChatActivity_AppBarLayout_appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/ChatActivity_Toolbar_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#ffffff"
+                android:elevation="5dp">
+
+                <ImageView
+                    android:id="@+id/ChatActivity_ImageView_titleIcon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/icon_chat_1"/>
+
+                <TextView
+                    android:id="@+id/ChatActivity_TextView_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Chats"
+                    android:textColor="@color/backgroundColor"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/sans_bold"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp">
+
+                    <LinearLayout
+                        android:id="@+id/ChatActivity_LinearLayout_usersBarLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="right|center_vertical"
+                        android:paddingRight="15dp">
+
+                        <Button
+                            android:id="@+id/ChatActivity_Button_btnMenu"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:background="@drawable/icon_more"/>
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ChatActivity_RecyclerView_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundColor"
+            android:layout_below="@id/ChatActivity_AppBarLayout_appBarLayout">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <RelativeLayout
+            android:id="@+id/ChatActivity_RelativtLayout_chatBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <EditText
+                android:id="@+id/ChatActivity_EditText_sendMessage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:gravity="bottom"
+                android:layout_toLeftOf="@id/ChatActivity_Button_btnSend"
+                android:background="@drawable/edittext_white"
+                android:fontFamily="@font/sans_regular"
+                android:textSize="13sp"
+                android:textColor="#000000"/>
+
+            <ImageButton
+                android:id="@+id/ChatActivity_Button_btnSend"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/button_send"
+                android:background="#00ffffff"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</FrameLayout>

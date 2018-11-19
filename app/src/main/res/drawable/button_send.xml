@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true"
+        android:state_enabled="true">
+        <vector android:height="24dp" android:tint="@color/colorAccent"
+            android:viewportHeight="24.0" android:viewportWidth="24.0"
+            android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+            <path android:fillColor="#FF000000" android:pathData="M2.01,21L23,12 2.01,3 2,10l15,2 -15,2z"/>
+        </vector>
+        <scale android:scaleWidth="35dp"
+            android:scaleHeight="35dp" />
+    </item>
+
+    <item android:state_enabled="false">
+        <vector android:height="24dp" android:tint="#6D6D7A"
+            android:viewportHeight="24.0" android:viewportWidth="24.0"
+            android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+            <path android:fillColor="#FF000000" android:pathData="M2.01,21L23,12 2.01,3 2,10l15,2 -15,2z"/>
+        </vector>
+    </item>
+
+    <item android:state_enabled="true"
+        android:state_pressed="false">
+        <vector android:height="24dp" android:tint="@color/colorAccent"
+            android:viewportHeight="24.0" android:viewportWidth="24.0"
+            android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+            <path android:fillColor="#FF000000" android:pathData="M2.01,21L23,12 2.01,3 2,10l15,2 -15,2z"/>
+        </vector>
+
+    </item>
+
+</selector>

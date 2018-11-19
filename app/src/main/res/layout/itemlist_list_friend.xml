@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:id="@+id/ItemListListFriend_RelativeLayout_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="65dp"
+    android:layout_height="60dp"
     android:orientation="horizontal"
     android:paddingHorizontal="20dp"
     android:background="#00ffffff">
 
     <ImageView
         android:id="@+id/ItemListListFriend_ImageView_profile"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"/>
 
@@ -18,7 +19,7 @@
         android:id="@+id/ItemListListFriend_TextView_nickName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="20dp"
         android:fontFamily="@font/sans_light"
         android:textColor="#ffffff"
         android:text="닉네임"

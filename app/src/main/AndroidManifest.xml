@@ -25,7 +25,8 @@
             android:theme="@style/Base.Theme.AppCompat.Dialog" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.AddFriendActivity" />
-        <activity android:name=".Dialog.ProfileDialog"></activity>
+        <activity android:name=".Dialog.ProfileDialog" />
+        <activity android:name=".activity.ChatActivity"></activity>
     </application>
 
 </manifest>

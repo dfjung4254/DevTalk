@@ -10,22 +10,21 @@
 
     <TextView
         android:id="@+id/ProfileDialog_TextView_nickName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/sans_bold"
+        android:fontFamily="@font/sans_regular"
+        android:gravity="center_horizontal|bottom"
         android:textSize="25sp"
-        android:text="닉네임"
         android:textColor="#ffffff"/>
 
     <TextView
         android:id="@+id/ProfileDialog_TextView_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:gravity="center"
-        android:fontFamily="@font/sans_regular"
-        android:text="dfjung4254@naver.com"
+        android:fontFamily="@font/sans_thin"
         android:textSize="14sp"
-        android:textColor="#ffffff"/>
+        android:textColor="#bfbfbf"/>
 
     <FrameLayout
         android:layout_width="330dp"
@@ -58,7 +57,7 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/ProfileDialog_Button_groupChat"
+            android:id="@+id/ProfileDialog_Button_privateChat"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="right|top"
@@ -71,7 +70,6 @@
 
         <ImageButton
             android:id="@+id/ProfileDialog_Button_backPress"
-
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="right|top"
@@ -83,7 +81,7 @@
             />
 
         <ImageButton
-            android:id="@+id/ProfileDialog_Button_privateChat"
+            android:id="@+id/ProfileDialog_Button_groupChat"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="right|bottom"
@@ -93,30 +91,7 @@
             android:src="@drawable/icon_groupchat"
             android:elevation="5dp"
             />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1:1"
-            android:textSize="14sp"
-            android:fontFamily="@font/sans_thin"
-            android:textColor="#ffffff"
-            android:layout_gravity="right"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="그룹"
-            android:textSize="14sp"
-            android:textColor="#ffffff"
-            android:fontFamily="@font/sans_thin"
-            android:layout_gravity="right"
-            android:layout_marginTop="185dp"
-            android:layout_marginRight="10dp"/>
-
+        
     </FrameLayout>
 
 

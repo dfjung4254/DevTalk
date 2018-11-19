@@ -26,6 +26,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -193,7 +194,7 @@ public class UsersFragment extends Fragment {
                             }
                         })
                         .into(((FriendListViewHolder)holder).imgv_profile);
-                ((FriendListViewHolder)holder).imgv_profile.setOnClickListener(new View.OnClickListener() {
+                ((FriendListViewHolder)holder).layout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         new ProfileDialog(getContext(), friend).show();
@@ -224,7 +225,7 @@ public class UsersFragment extends Fragment {
                             }
                         })
                         .into(((MeListViewHolder)holder).imgv_profile);
-                ((MeListViewHolder)holder).imgv_profile.setOnClickListener(new View.OnClickListener() {
+                ((MeListViewHolder)holder).layout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         new ProfileDialog(getContext(), friend).show();
@@ -245,21 +246,23 @@ public class UsersFragment extends Fragment {
             private TextView txt_nickName;
             private ImageView imgv_profile;
             private TextView txt_status;
+            private RelativeLayout layout;
 
             public FriendListViewHolder(View itemView) {
                 super(itemView);
                 txt_nickName = (TextView) itemView.findViewById(R.id.ItemListListFriend_TextView_nickName);
                 imgv_profile = (ImageView) itemView.findViewById(R.id.ItemListListFriend_ImageView_profile);
                 txt_status = (TextView) itemView.findViewById(R.id.ItemListListFriend_TextView_status);
+                layout = (RelativeLayout) itemView.findViewById(R.id.ItemListListFriend_RelativeLayout_layout);
             }
         }
-
         class MeListViewHolder extends RecyclerView.ViewHolder{
 
             private TextView txt_nickName;
             private ImageView imgv_profile;
             private TextView txt_status;
             private TextView txt_friendCount;
+            private RelativeLayout layout;
 
             public MeListViewHolder(View itemView) {
                 super(itemView);
@@ -267,6 +270,7 @@ public class UsersFragment extends Fragment {
                 imgv_profile = (ImageView) itemView.findViewById(R.id.ItemListListFriendMe_ImageView_profile);
                 txt_status = (TextView) itemView.findViewById(R.id.ItemListListFriendMe_TextView_status);
                 txt_friendCount = (TextView) itemView.findViewById(R.id.ItemListListFriendMe_TextView_friendCount);
+                layout = (RelativeLayout) itemView.findViewById(R.id.ItemListListFriendMe_RelativeLayout_layout);
             }
         }
 

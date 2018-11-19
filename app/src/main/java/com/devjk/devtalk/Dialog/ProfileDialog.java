@@ -26,6 +26,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.devjk.devtalk.R;
+import com.devjk.devtalk.activity.ChatActivity;
 import com.devjk.devtalk.activity.MainActivity;
 import com.devjk.devtalk.models.UserModel;
 
@@ -78,7 +79,8 @@ public class ProfileDialog extends Dialog {
             @Override
             public void onClick(View view) {
                 //1:1대화방으로 간다
-
+                getContext().startActivity(new Intent(getContext(), ChatActivity.class));
+                ProfileDialog.this.dismiss();
                 /*
                 *
                 *
