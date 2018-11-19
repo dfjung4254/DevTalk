@@ -2,12 +2,18 @@ package com.devjk.devtalk.controller;
 
 import android.support.v7.app.AppCompatActivity;
 
+import com.devjk.devtalk.models.ChatModel;
+import com.devjk.devtalk.models.MessageModel;
 import com.devjk.devtalk.models.UserModel;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.WriteBatch;
+
+import java.util.Map;
 
 public class DatabaseController {
 
@@ -43,6 +49,11 @@ public class DatabaseController {
         return firebaseFirestore.collection("Users")
                 .document(uid).get();
     }
+    //로그인유저 정보 갱신
+    public DocumentReference updateUserInfoListen(String uid){
+        return FirebaseFirestore.getInstance().collection("Users")
+                .document(uid);
+    }
     //친구리스트 추가업데이트
     public Task<Void> addFriendUid(String friendUid){
         AuthController.currentUser.getFriendUidList().put(friendUid, true);
@@ -52,8 +63,6 @@ public class DatabaseController {
     }
     //친구당한 리스트 추가업데이트
     public Task<Void> addFriendedUid(String friendUid){
-//        Map<String, Boolean> map = new HashMap<>();
-//        map.put(AuthController.getInstance().getCurrentUser().getUid(), true);
         return firebaseFirestore.collection("Users")
                 .document(friendUid).update("friendedUidList."+AuthController.getInstance().getCurrentUser().getUid(), true);
     }
@@ -73,6 +82,59 @@ public class DatabaseController {
     public Query getMyFriendsQueryListen(String queryField){
         return firebaseFirestore.collection("Users")
                 .whereEqualTo(queryField+"."+AuthController.getInstance().getCurrentUser().getUid(), true);
+    }
+    //대화방 생성.
+    public Task<DocumentReference> makeNewChatRoom(final ChatModel chatModel){
+        return FirebaseFirestore.getInstance().collection("ChatRooms")
+                .add(chatModel);
+    }
+    //대화방 생성시 유저정보갱신
+    public Task<Void> updateUserRoomInfo(ChatModel chatModel, DocumentReference documentReference){
+        String tpRoomUid = documentReference.getId();
+        Map<String, Boolean> participants = chatModel.getChatParticipantsUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        WriteBatch batch = db.batch();
+        String query;
+        if(chatModel.getChatRoomStatus() == ChatModel.PRIVATEROOM){
+            //개인룸일때.
+            query = "privateChatRoomList";
+            String myUid = AuthController.currentUser.getUid();
+            String counterUid = "";
+            for(String uids : participants.keySet()){
+                if(!uids.equals(AuthController.currentUser.getUid())){
+                    //uids == 상대방
+                    counterUid = uids;
+                }
+            }
+            DocumentReference ref = db.collection("Users")
+                    .document(myUid);
+            batch.update(ref, query+"."+counterUid, tpRoomUid);
+            ref = db.collection("Users")
+                    .document(counterUid);
+            batch.update(ref, query+"."+myUid, tpRoomUid);
+        }else{
+            //단체룸일때.
+            query = "groupChatRoomList";
+            for(String uids : participants.keySet()){
+                DocumentReference ref = db.collection("Users")
+                        .document(uids);
+                batch.update(ref, query+"."+tpRoomUid, true);
+            }
+        }
+        return batch.commit();
+    }
+    //RoomUid로 대화방 모델 가져옴.
+    public Task<DocumentSnapshot> getChatRoomModel(String roomUid){
+        return FirebaseFirestore.getInstance().collection("ChatRooms")
+                .document(roomUid).get();
+    }
+    //메세지 보내기
+    public Task<Void> sendMessages(MessageModel message, String chatRoomUid){
+        return FirebaseFirestore.getInstance().collection("ChatRooms")
+                .document(chatRoomUid)
+                .collection("Messages")
+                .document("time : "+message.getTime().getSeconds())
+                .set(message);
     }
 
 }

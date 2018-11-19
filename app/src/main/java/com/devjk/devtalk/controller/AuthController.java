@@ -12,6 +12,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.storage.UploadTask;
 
@@ -130,6 +131,10 @@ public class AuthController {
     //계정 로그인
     public Task<AuthResult> checkAuthandLogin(final Activity parent, String inputEmail, String inputPassword){
         return firebaseAuth.signInWithEmailAndPassword(inputEmail, inputPassword);
+    }
+    //최신 유저정보 갱신
+    public DocumentReference listenCurrentUserUpdate(){
+        return DatabaseController.getInstance().updateUserInfoListen(currentUser.getUid());
     }
     //현재 유저 정보 설정
     public Task<DocumentSnapshot> setCurrentUser() {

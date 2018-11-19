@@ -28,9 +28,13 @@ import com.bumptech.glide.request.target.Target;
 import com.devjk.devtalk.R;
 import com.devjk.devtalk.activity.ChatActivity;
 import com.devjk.devtalk.activity.MainActivity;
+import com.devjk.devtalk.controller.AuthController;
+import com.devjk.devtalk.models.ChatModel;
 import com.devjk.devtalk.models.UserModel;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class ProfileDialog extends Dialog {
 
@@ -79,7 +83,17 @@ public class ProfileDialog extends Dialog {
             @Override
             public void onClick(View view) {
                 //1:1대화방으로 간다
-                getContext().startActivity(new Intent(getContext(), ChatActivity.class));
+                Intent intent = new Intent(getContext(), ChatActivity.class);
+                ArrayList<String> tpUid = new ArrayList<>();
+                tpUid.add(AuthController.currentUser.getUid());
+                tpUid.add(thisUser.getUid());
+                ArrayList<String> tpNickName = new ArrayList<>();
+                tpNickName.add(AuthController.currentUser.getNickName());
+                tpNickName.add(thisUser.getNickName());
+                intent.putStringArrayListExtra("participants", tpUid);
+                intent.putStringArrayListExtra("participantsNickName", tpNickName);
+                intent.putExtra("roomType", ChatModel.PRIVATEROOM);
+                getContext().startActivity(intent);
                 ProfileDialog.this.dismiss();
                 /*
                 *

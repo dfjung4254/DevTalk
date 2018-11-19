@@ -60,7 +60,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="10dp"
-        android:text="친구 (28)"
         android:textColor="#838394"
         android:textSize="12sp"/>
 

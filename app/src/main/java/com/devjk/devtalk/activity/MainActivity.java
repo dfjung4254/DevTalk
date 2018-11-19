@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -19,10 +20,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.devjk.devtalk.R;
+import com.devjk.devtalk.controller.AuthController;
 import com.devjk.devtalk.fragment.ChatListFragment;
 import com.devjk.devtalk.fragment.MyAccountFragment;
 import com.devjk.devtalk.fragment.ScheduleFragment;
 import com.devjk.devtalk.fragment.UsersFragment;
+import com.devjk.devtalk.models.UserModel;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import javax.annotation.Nullable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,6 +77,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setStatusBarColor(Color.parseColor(SplashActivity.THEME_COLOR));
         setContentView(R.layout.activity_main);
+
+        //set currentUser Information
+        //계속해서 현재 유저정보에 변화가 있으면 AuthController의 currentUser Model을 갱신한다.
+        AuthController.getInstance().listenCurrentUserUpdate().addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot snapshot, @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.d(MainActivity.MYTAG, "Listen failed.", e);
+                    return;
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    AuthController.currentUser = snapshot.toObject(UserModel.class);
+                    Log.d(MainActivity.MYTAG, "CurrentUser 정보 갱신: ");
+                } else {
+                    Log.d(MainActivity.MYTAG, "Current data: null");
+                }
+            }
+        });
 
         toolbar = (Toolbar) findViewById(R.id.MainActivity_Toolbar_toolbar);
         tabLayout = (TabLayout) findViewById(R.id.MainActivity_TabLayout_tabLayout);

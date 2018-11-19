@@ -24,19 +24,19 @@
                 android:background="#ffffff"
                 android:elevation="5dp">
 
-                <ImageView
-                    android:id="@+id/ChatActivity_ImageView_titleIcon"
+                <Button
+                    android:id="@+id/ChatActivity_Button_btnBackPress"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/icon_chat_1"/>
+                    android:background="@drawable/icon_backpress2"
+                    android:layout_marginRight="10dp"/>
+
 
                 <TextView
-                    android:id="@+id/ChatActivity_TextView_title"
+                    android:id="@+id/ChatActivity_TextView_chatTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:text="Chats"
                     android:textColor="@color/backgroundColor"
                     android:textSize="16sp"
                     android:fontFamily="@font/sans_bold"/>
