@@ -14,6 +14,7 @@ public class ChatModel {
     private String chatRoomTitle;
     private int chatRoomStatus;
     private Map<String, Boolean> chatParticipantsUid;
+    private String lastMessage;
 
     public ChatModel(){
         //constructor
@@ -25,6 +26,7 @@ public class ChatModel {
         this.chatRoomTitle = chatRoomTitle;
         this.chatRoomStatus = chatRoomStatus;
         chatParticipantsUid = new HashMap<>();
+        this.lastMessage = "";
 
         int size = participantsUid.size();
         for(int i = 0; i < size; i++){
@@ -49,5 +51,11 @@ public class ChatModel {
     }
     public void setChatParticipantsUid(Map<String, Boolean> chatParticipantsUid) {
         this.chatParticipantsUid = chatParticipantsUid;
+    }
+    public String getLastMessage() {
+        return lastMessage;
+    }
+    public void setLastMessage(String lastMessage) {
+        this.lastMessage = lastMessage;
     }
 }

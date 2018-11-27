@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/ChatListFragment_LinearLayout_mainView"
+<FrameLayout android:id="@+id/ChatListFragment_FrameLayout_mainView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragment.ChatListFragment"
-    android:gravity="center"
-    android:theme="@style/DevFragText">
+    android:background="@color/backgroundColor"
+    android:theme="@style/DevFragText"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="채팅 목록 보여줄 곳.abcdefg"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ChatListFragment_RecyclerView_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</LinearLayout>
+    </android.support.v7.widget.RecyclerView>
+
+</FrameLayout>

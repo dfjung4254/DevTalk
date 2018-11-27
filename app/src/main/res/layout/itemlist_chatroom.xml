@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/ItemListChatRoom_RelativeLayout_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="20dp"
+    android:background="#00ffffff">
+
+    <ImageView
+        android:id="@+id/ItemListChatRoom_ImageView_profile"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"/>
+
+    <LinearLayout
+        android:id="@+id/ItemListChatRoom_LinearLayout_centerBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/ItemListChatRoom_ImageView_profile"
+        android:layout_toLeftOf="@id/ItemListChatRoom_TextView_unReadCount"
+        android:layout_marginLeft="10dp"
+        android:paddingVertical="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ItemListChatRoom_TextView_chatRoomTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="방 제목임"
+            android:textColor="#ffffff"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/ItemListChatRoom_TextView_lastMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="대화내용임아아아"
+            android:textColor="#b3b3b3"
+            android:textSize="11sp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ItemListChatRoom_TextView_unReadCount"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="1"
+        android:textSize="11sp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:background="@drawable/txt_unread"
+        android:visibility="gone"/>
+
+</RelativeLayout>

@@ -6,6 +6,7 @@ import com.devjk.devtalk.models.ChatModel;
 import com.devjk.devtalk.models.MessageModel;
 import com.devjk.devtalk.models.UserModel;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -106,6 +107,7 @@ public class DatabaseController {
                     counterUid = uids;
                 }
             }
+
             DocumentReference ref = db.collection("Users")
                     .document(myUid);
             batch.update(ref, query+"."+counterUid, tpRoomUid);
@@ -130,11 +132,55 @@ public class DatabaseController {
     }
     //메세지 보내기
     public Task<Void> sendMessages(MessageModel message, String chatRoomUid){
-        return FirebaseFirestore.getInstance().collection("ChatRooms")
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        WriteBatch batch = db.batch();
+        DocumentReference ref = db.collection("ChatRooms")
                 .document(chatRoomUid)
                 .collection("Messages")
-                .document("time : "+message.getTime().getSeconds())
-                .set(message);
+                .document("time : "+message.getTime().getSeconds());
+        batch.set(ref, message);
+        ref = db.collection("ChatRooms")
+                .document(chatRoomUid);
+        batch.update(ref, "lastMessage", message);
+        return batch.commit();
+    }
+    //대화방 메세지정보 가져옴
+    public CollectionReference getMessages(String roomUid){
+        return FirebaseFirestore.getInstance().collection("ChatRooms")
+                .document(roomUid)
+                .collection("Messages");
+    }
+    //대화방 참가자 유저정보 수신
+    public Query getChatUserInformation(ChatModel chatModel, String roomUid){
+        Map<String, Boolean> participants = chatModel.getChatParticipantsUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        WriteBatch batch = db.batch();
+        String query = "";
+        if(chatModel.getChatRoomStatus() == ChatModel.PRIVATEROOM){
+            //개인룸일때.
+            query = "privateChatRoomList";
+            String myUid = AuthController.currentUser.getUid();
+            String counterUid = "";
+            for(String uids : participants.keySet()){
+                if(!uids.equals(AuthController.currentUser.getUid())){
+                    //uids == 상대방
+                    counterUid = uids;
+                }
+            }
+            return db.collection("Users")
+                    .whereEqualTo(query+"."+myUid, roomUid);
+        }else{
+            //단체룸일때.
+            query = "groupChatRoomList";
+            return db.collection("Users")
+                    .whereEqualTo(query+"."+roomUid, true);
+
+        }
+    }
+    //내가 속한 대화방 모두검색
+    public Query searchMyChatRoomList(){
+        return FirebaseFirestore.getInstance().collection("ChatRooms")
+                .whereEqualTo("chatParticipantsUid."+AuthController.currentUser.getUid(), true);
     }
 
 }

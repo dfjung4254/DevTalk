@@ -197,7 +197,7 @@ public class UsersFragment extends Fragment {
                 ((FriendListViewHolder)holder).layout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        new ProfileDialog(getContext(), friend).show();
+                        new ProfileDialog(getContext(), friend, ProfileDialog.BUTTONALL).show();
                     }
                 });
             }else{
@@ -228,7 +228,7 @@ public class UsersFragment extends Fragment {
                 ((MeListViewHolder)holder).layout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        new ProfileDialog(getContext(), friend).show();
+                        new ProfileDialog(getContext(), friend, ProfileDialog.BUTTONONLYCLOSE).show();
                     }
                 });
             }

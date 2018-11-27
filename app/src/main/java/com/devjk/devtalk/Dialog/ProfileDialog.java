@@ -38,6 +38,9 @@ import java.util.ArrayList;
 
 public class ProfileDialog extends Dialog {
 
+    public static final int BUTTONALL = 0;
+    public static final int BUTTONONLYCLOSE = 1;
+
     private Context context;
     private UserModel thisUser;
 
@@ -49,12 +52,15 @@ public class ProfileDialog extends Dialog {
     private ImageButton btn_groupChat;
     private ImageButton btn_backPress;
 
-    public ProfileDialog(@NonNull Context context, UserModel userModel) {
+    private int buttonType;
+
+    public ProfileDialog(@NonNull Context context, UserModel userModel, int buttonType) {
         super(context);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setCanceledOnTouchOutside(false);
         this.context = context;
         this.thisUser = userModel;
+        this.buttonType = buttonType;
     }
 
     @Override
@@ -73,6 +79,11 @@ public class ProfileDialog extends Dialog {
         btn_privateChat = (ImageButton) findViewById(R.id.ProfileDialog_Button_privateChat);
         btn_groupChat = (ImageButton) findViewById(R.id.ProfileDialog_Button_groupChat);
         btn_backPress = (ImageButton) findViewById(R.id.ProfileDialog_Button_backPress);
+
+        if(buttonType == BUTTONONLYCLOSE){
+            btn_privateChat.setVisibility(View.GONE);
+            btn_groupChat.setVisibility(View.GONE);
+        }
 
         setValues();
         setOnClickListeners();
